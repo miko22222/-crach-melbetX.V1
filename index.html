@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexLion Melbet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #e8491d;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+
+    #notification {
+      display: none;
+      background-color: #e8491d;
+      color: #fff;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    #timer {
+      display: none;
+      color: #fff;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ApexLion Melbet</h1>
+
+  <p>Promocode: miko2222</p>
+
+  <label for="successRate">Success Rate:</label>
+  <input type="number" id="successRate" step="0.01" min="1" max="35">
+
+  <label for="accountNumber">Account Number:</label>
+  <input type="number" id="accountNumber" min="1">
+
+  <button onclick="simulate()">Simulate</button>
+
+  <div id="result"></div>
+  <div id="notification"></div>
+  <div id="timer"></div>
+
+  <script>
+    function simulate() {
+      const successRate = parseFloat(document.getElementById('successRate').value);
+      const accountNumber = parseInt(document.getElementById('accountNumber').value);
+
+      let result = (successRate / 35.00) / 2.00 * 20;
+
+      if (result === 0.03) {
+        result *= 70.00;
+        showNotificationWithTimer("Drag", "red", 8);
+      } else if (result === 0.4914) {
+        result = 0.0;
+        showNotificationWithTimer("Drag", "red", 3);
+      } else if (result === 0.87142) {
+        result = 0.0;
+        showNotificationWithTimer("Drag", "red", 3);
+      } else if (result === 0.05) {
+        result = 0.0;
+        showNotificationWithTimer("Drag", "red", 3);
+      } else if (result === 0.06) {
+        result *= 8.00;
+        showNotificationWithTimer("Drag", "red", 8);
+      } else if (result === 6.28) {
+        result -= 3.00;
+        showNotificationWithTimer("Drag", "red", 3);
+      } else if ([0.39, 0.33, 0.34, 0.36, 0.38, 0.37, 0.32].includes(result)) {
+        result *= 5.00;
+        showNotificationWithTimer("Drag", "red", 9);
+      } else if (result === 0.48) {
+        result -= 0.18;
+        showNotificationWithTimer("Drag", "red", 3);
+      } else if ([0.7, 0.8, 0.9, 0.4, 0.3, 0.2, 0.1].includes(result)) {
+        result = 0.0;
+        showNotificationWithTimer("Drag", "red", 3);
+      } else if ([0.46, 0.45, 0.41].includes(result)) {
+        result *= 5.00;
+        showNotificationWithTimer("Drag", "red", 6);
+      } else if (result > 4.00 && result < 7.00) {
+        result /= 2.00;
+      } else if (result >= 7.00 && result < 10.00) {
+        result /= 5.00;
+      } else if (result >= 10.00 && result < 20.00) {
+        result /= 8.00;
+      } else if (result > 20.00) {
+        result /= 11.00;
+      }
+
+      showResult(result);
+    }
+
+    function showResult(result) {
+      document.getElementById('result').innerText = `Result: ${result.toFixed(2)}`;
+    }
+
+    function showNotificationWithTimer(message, color, duration) {
+      showNotification(message, color, duration);
+      startTimer(duration);
+    }
+
+    function showNotification(message, color, duration) {
+      const notification = document.getElementById('notification');
+      notification.innerText = message;
+      notification.style.backgroundColor = color;
+      notification.style.display = 'block';
+
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, duration * 1000);
+    }
+
+    function startTimer(seconds) {
+      const timer = document.getElementById('timer');
+      timer.innerText = `Drag in: ${seconds}s`;
+      timer.style.display = 'block';
+
+      let count = seconds;
+      const countdown = setInterval(() => {
+        count--;
+        timer.innerText = `Drag in: ${count}s`;
+
+        if (count <= 0) {
+          clearInterval(countdown);
+          timer.style.display = 'none';
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+
+</html>
